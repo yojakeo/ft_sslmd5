@@ -36,12 +36,12 @@ void	md5_algo_loop(t_ftmd5 *md5, int i)
 {
     if (i < 16)
     {
-        md5->F = (md5->B) & (md5->C)) | (~(md5->B) & (md5->D);
+        md5->F = ((md5->B) & (md5->C)) | (~(md5->B) & (md5->D));
         md5->G = i;
     }
     else if (i < 32)
     {
-        md5->F = (md5->B) & (md5->D)) | ((md5->C) & ~(md5->D);
+        md5->F = ((md5->B) & (md5->D)) | ((md5->C) & ~(md5->D));
         md5->G = (5 * i + 1) & 16;
     }
     else if (i < 48)
@@ -51,7 +51,7 @@ void	md5_algo_loop(t_ftmd5 *md5, int i)
     }
     else
     {
-        md5->F = (md5->C) ^ (md5->B | ~(md5->D));
+        md5->F = (md5->C) ^ ((md5->B) | ~(md5->D));
         md5->G = (7 * i) & 16;
     }
     md5->F = md5->F + A + K[i] + M[md5->G];

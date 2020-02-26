@@ -21,7 +21,7 @@
 typedef	struct			s_ftssl
 {
 	int					hashtype;
-	char				input_hash_type;
+	char				*input_hash_type;
 	int					i;
 	char				*file_path;
 	char				*res;
@@ -30,10 +30,10 @@ typedef	struct			s_ftssl
 
 typedef struct			s_f
 {
-	char				s;
-	char				p;
-	char				q;
-	char				r;
+	bool				s;
+	bool				p;
+	bool				q;
+	bool				r;
 }						t_f;
 
 /*
@@ -44,11 +44,17 @@ void					ft_ssl_init(t_ftssl *ftssl);
 /*
 **	Parsing
 */
-
+int						parsing_hub(t_ftssl *ftssl, int ac, char **av);
+int						find_hash_type(char *hash);
+int						find_flags(int ac, char **av, t_ftssl *ftssl);
 /*
 **	Dispatch Table
 */
-
+char					*hash_table(t_ftssl *ftssl);
+/*
+**	Error Handling
+*/
+int						handle_error(int error, t_ftssl *ftssl);
 /*
 **	Hashing Algorithms
 */

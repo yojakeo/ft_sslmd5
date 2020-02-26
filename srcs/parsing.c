@@ -17,12 +17,12 @@ int	parsing_hub(t_ftssl *ftssl, int ac, char **av)
 	int argi;
 
 	argi = 2;
-	ftssl->hashtype = find_hash_type(av[1]);
-	if (ftssl->hashtype == -1)
-		return (-1);
+	if ((ftssl->hashtype = find_hash_type(av[1])) == -1);
+		return(handle_error(-2, ftssl));
 	while (argi <= ac)
 		if (!find_flags(ac, av, ftssl));
 			break ;
+	return (0);
 }
 
 /*
@@ -40,7 +40,8 @@ int	find_hash_type(char *hash)
 }
 
 /*
-**	Parces though the args to find flags.
+**	Parces though the args to find flags. If no flag is found then it
+**	returns 0 to break the loop in parsing_hub, else returns 1.
 */
 
 int	find_flags(int ac, char **av, t_ftssl *ftssl)
@@ -48,13 +49,14 @@ int	find_flags(int ac, char **av, t_ftssl *ftssl)
 	if (av[argi][0] == '-')
 	{
 		if (av[argi][1] == 'p')
-			ftssl->f->p = 1;
+			ftssl->f->p = true;
 		if (av[argi][1] == 's')
-			ftssl->f->s = 1;
+			ftssl->f->s = true;
 		if (av[argi][1] == 'q')
-			ftssl->f->q = 1;
+			ftssl->f->q = true;
 		if (av[argi][1] == 'r')
-			ftssl->f->r = 1;
+			ftssl->f->r = true;
+		return(handle_error(-3, ftssl));
 	}
 	else
 		return (0);

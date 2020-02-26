@@ -19,5 +19,7 @@ int	handle_error(int error, t_ftssl *ftssl)
 	else if (error == -2)
 		ft_printf("error: %s is not a valid hash type.\n", \
 									ftssl->input_hash_type);
+	else if (error == -3)
+		ft_printf("Invalid flag.\n");
 	return (error);
 }

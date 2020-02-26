@@ -44,3 +44,11 @@ static unsigned int g_md5_st[64] = {
 	6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21
 };
 #endif
+
+/*
+**	MD5 Fucntions
+*/
+void					md5_init(t_ftmd5 *md5);
+void					md5_algo_loop(t_ftmd5 *md5, int i);
+int    					md5_reverse(int i);
+char					*md5_hasher(char *input);

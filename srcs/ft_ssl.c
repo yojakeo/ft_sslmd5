@@ -22,6 +22,7 @@ char	*ft_ssl_launcher(int ac, char **av)
 
 	ft_ssl_init(&ftssl);
 	parsing_hub(&ftssl, av);
+	ftssl.res = hash_table(&ftssl);
 	return (ftssl.res);
 }
 
@@ -29,10 +30,10 @@ void	ft_ssl_init(t_ftssl *ftssl)
 {
 	ftssl->hashtype = 0;
 	ftssl->i = 0;
-	ftssl->f->p = 0;
-	ftssl->f->s = 0;
-	ftssl->f->q = 0;
-	ftssl->f->r = 0;
+	ftssl->f->p = false;
+	ftssl->f->s = false;
+	ftssl->f->q = false;
+	ftssl->f->r = false;
 }
 
 /*
