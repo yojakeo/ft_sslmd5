@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/md5.h"
+#include "../includes/ft_ssl.h"
 
 char	*hash_table(t_ftssl *ftssl)
 {
 	static char	*(*p[])() = {
-		[0] = md5_hasher;
-		[1] = sha256_hasher;
+		[0] = md5_hasher,
+		[1] = sha256_hasher,
 	};
 
 	return (p[ftssl->hashtype](ftssl));

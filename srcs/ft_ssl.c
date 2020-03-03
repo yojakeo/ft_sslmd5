@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/md5.h"
+#include "../includes/ft_ssl.h"
 
 /*
 **	The launching point of SSL.
@@ -21,7 +21,7 @@ char	*ft_ssl_launcher(int ac, char **av)
 	t_ftssl	ftssl;
 
 	ft_ssl_init(&ftssl);
-	parsing_hub(&ftssl, av);
+	parsing_hub(&ftssl, ac, av);
 	ftssl.res = hash_table(&ftssl);
 	return (ftssl.res);
 }
@@ -30,10 +30,10 @@ void	ft_ssl_init(t_ftssl *ftssl)
 {
 	ftssl->hashtype = 0;
 	ftssl->i = 0;
-	ftssl->f->p = false;
-	ftssl->f->s = false;
-	ftssl->f->q = false;
-	ftssl->f->r = false;
+	ftssl->f.p = false;
+	ftssl->f.s = false;
+	ftssl->f.q = false;
+	ftssl->f.r = false;
 }
 
 /*

@@ -6,7 +6,7 @@
 /*   By: japarbs <japarbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 20:42:32 by japarbs           #+#    #+#             */
-/*   Updated: 2019/12/08 20:11:26 by japarbs          ###   ########.fr       */
+/*   Updated: 2020/03/02 19:28:32 by japarbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,20 @@
 # define FT_SSL_H
 
 # include "../libftplus/includes/libft.h"
-
+# include "ft_md5.h"
+# include "ft_sha256.h"
+# include <stdbool.h>
 /*
 **	Structures
 */
+typedef struct			s_flags
+{
+	bool				s;
+	bool				p;
+	bool				q;
+	bool				r;
+}						t_flags;
+
 typedef	struct			s_ftssl
 {
 	int					hashtype;
@@ -25,28 +35,21 @@ typedef	struct			s_ftssl
 	int					i;
 	char				*file_path;
 	char				*res;
-	t_f					f;
+	char				*errorstr;
+	t_flags				f;
 }						t_ftssl;
-
-typedef struct			s_f
-{
-	bool				s;
-	bool				p;
-	bool				q;
-	bool				r;
-}						t_f;
 
 /*
 **	Launcher
 */
-char					*ft_ssl_launcher(char **av);
+char					*ft_ssl_launcher(int ac, char **av);
 void					ft_ssl_init(t_ftssl *ftssl);
 /*
 **	Parsing
 */
 int						parsing_hub(t_ftssl *ftssl, int ac, char **av);
-int						find_hash_type(char *hash);
-int						find_flags(int ac, char **av, t_ftssl *ftssl);
+int						find_hash_type(char *hash, t_ftssl *ftssl);
+int						find_flags(int argi, int ac, char **av, t_ftssl *ftssl);
 /*
 **	Dispatch Table
 */

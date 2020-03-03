@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_sha256.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: japarbs <japarbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/23 20:48:09 by japarbs           #+#    #+#             */
-/*   Updated: 2019/12/08 20:06:54 by japarbs          ###   ########.fr       */
+/*   Created: 2020/03/02 19:12:54 by japarbs           #+#    #+#             */
+/*   Updated: 2020/03/02 19:17:45 by japarbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_ssl.h"
+#include "ft_ssl.h"
 
-int	handle_error(int error, t_ftssl *ftssl)
+typedef struct			s_ftsha256
 {
-	if (error == -1)
-		ft_printf("error: %s is not a valid path.\n", ftssl->file_path);
-	else if (error == -2)
-		ft_printf("error: %s is not a valid hash type.\n", \
-									ftssl->errorstr);
-	else if (error == -3)
-		ft_printf("Invalid flag.\n");
-	return (error);
-}
+	int 				a0;
+	int 				b0;
+	int 				c0;
+	int 				d0;
+	unsigned long long	A;
+    unsigned long long	B;
+    unsigned long long	C;
+    unsigned long long	D;
+    unsigned long long	F;
+	unsigned long long	G;
+	char				*res;
+}						t_ftsha256;
+
+char	*sha256_hasher(char *input);

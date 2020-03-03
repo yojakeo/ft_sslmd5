@@ -6,7 +6,7 @@
 /*   By: japarbs <japarbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 21:01:20 by japarbs           #+#    #+#             */
-/*   Updated: 2020/01/02 18:52:44 by japarbs          ###   ########.fr       */
+/*   Updated: 2020/03/02 19:44:19 by japarbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ void	md5_algo_loop(t_ftmd5 *md5, int i)
         md5->F = (md5->C) ^ ((md5->B) | ~(md5->D));
         md5->G = (7 * i) & 16;
     }
-    md5->F = md5->F + A + K[i] + M[md5->G];
+    md5->F = md5->F + md5->A + g_md5_st[i] + M[md5->G];
     md5->A = md5->D;
     md5->D = md5->C;
-    md5->C = md5->B;
-    md5->B = md5->B + LEFT_32(md5->F, g_md5_st[i]);
+    md5->C = md5->B;z
+    md5->B = md5->B + ROTATE_32(md5->F, g_md5_st[i]);
 }
 
 /*
@@ -95,6 +95,5 @@ char	*md5_hasher(char *input)
         while (++loop != 63)
             md5_algo_loop(&md5, loop);
     }
-	md5_algorithum(&md5);
 	return (md5.res);
 }

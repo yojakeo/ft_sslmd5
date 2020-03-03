@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: japarbs <japarbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/23 20:48:09 by japarbs           #+#    #+#             */
-/*   Updated: 2019/12/08 20:06:54 by japarbs          ###   ########.fr       */
+/*   Created: 2019/11/21 23:09:06 by japarbs           #+#    #+#             */
+/*   Updated: 2020/03/02 19:29:26 by japarbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_ssl.h"
 
-int	handle_error(int error, t_ftssl *ftssl)
+int	main(int ac, char **av)
 {
-	if (error == -1)
-		ft_printf("error: %s is not a valid path.\n", ftssl->file_path);
-	else if (error == -2)
-		ft_printf("error: %s is not a valid hash type.\n", \
-									ftssl->errorstr);
-	else if (error == -3)
-		ft_printf("Invalid flag.\n");
-	return (error);
+	if (ac <= 2)
+		ft_putstr("Usage: ./ft_ssl <Hash> <Flags> <Args>.\n");
+	ft_ssl_launcher(ac, av);
+	return (0);
 }

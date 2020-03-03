@@ -30,11 +30,6 @@ typedef struct			s_ftmd5
 	char				*res;
 }						t_ftmd5;
 
-# define F(B, C, D) 			((B) & (C)) | (~(B) & (D))
-# define G(B, C, D) 			((B) & (D)) | ((C) & ~(D))
-# define H(B, C, D) 			(B) ^ (C) ^ (D)
-# define I(B, C, D) 			(C) ^ (B | ~(D))
-
 # define ROTATE_32(x, n)	(((x) << (n)) | ((x) >> (32-(n))))
 
 static unsigned int g_md5_st[64] = {
