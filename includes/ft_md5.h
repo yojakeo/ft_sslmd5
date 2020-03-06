@@ -6,14 +6,12 @@
 /*   By: japarbs <japarbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 21:39:06 by japarbs           #+#    #+#             */
-/*   Updated: 2019/12/11 20:47:28 by japarbs          ###   ########.fr       */
+/*   Updated: 2020/03/05 20:08:54 by japarbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_MD5_H
 # define FT_MD5_H
-
-# include "ft_ssl.h"
 
 typedef struct			s_ftmd5
 {
@@ -21,16 +19,14 @@ typedef struct			s_ftmd5
 	int 				b0;
 	int 				c0;
 	int 				d0;
-	unsigned long long	A;
-    unsigned long long	B;
-    unsigned long long	C;
-    unsigned long long	D;
-    unsigned long long	F;
-	unsigned long long	G;
+	unsigned long long	a;
+	unsigned long long	b;
+	unsigned long long	c;
+	unsigned long long	d;
+	unsigned long long	f;
+	unsigned long long	g;
 	char				*res;
 }						t_ftmd5;
-
-# define ROTATE_32(x, n)	(((x) << (n)) | ((x) >> (32-(n))))
 
 static unsigned int g_md5_st[64] = {
 	7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22,
@@ -38,12 +34,13 @@ static unsigned int g_md5_st[64] = {
 	4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23,
 	6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21
 };
-#endif
 
 /*
 **	MD5 Fucntions
 */
 void					md5_init(t_ftmd5 *md5);
 void					md5_algo_loop(t_ftmd5 *md5, int i);
-int    					md5_reverse(int i);
+int						md5_reverse(int i);
 char					*md5_hasher(char *input);
+
+#endif

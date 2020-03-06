@@ -37,21 +37,21 @@ void	ft_ssl_init(t_ftssl *ftssl)
 }
 
 /*
-	Sudo code
-
-	Modules
-	=-=-=-=-=-=-=-=-=
-	Main launcher:
-	Parser:
-	Dispatch Table:
-	Error Manager:
-
-	Hashers...
-	MD5:
-	SHA128:
-	SHA256:
-	SHA512:
-	=-=-=-=-=-=-=-=-=
-	Logic
-	=-=-=-=-=-=-=-=-=
+**	Sudo code
+**
+**	Modules
+**	=-=-=-=-=-=-=-=-=
+**	Main launcher:
+**	Parser:
+**	Dispatch Table:
+**	Error Manager:
+**
+**	Hashers...
+**	MD5:
+**	SHA128:
+**	SHA256:
+**	SHA512:
+**	=-=-=-=-=-=-=-=-=
+**	Logic
+**	=-=-=-=-=-=-=-=-=
 */

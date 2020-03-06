@@ -17,6 +17,7 @@
 # include "ft_md5.h"
 # include "ft_sha256.h"
 # include <stdbool.h>
+
 /*
 **	Structures
 */

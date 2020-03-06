@@ -15,7 +15,8 @@
 int	main(int ac, char **av)
 {
 	if (ac <= 2)
-		ft_putstr("Usage: ./ft_ssl <Hash> <Flags> <Args>.\n");
-	ft_ssl_launcher(ac, av);
+		ft_printf("Usage: ./ft_ssl <Hash> <Flags> <Args>.\n");
+	else
+		ft_ssl_launcher(ac, av);
 	return (0);
 }

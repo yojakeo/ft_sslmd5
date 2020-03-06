@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_sha256.h"
+#include "../../includes/ft_ssl.h"
 
 char	*sha256_hasher(char *input)
 {
-	t_ftsha256		sha;
+	t_ftsha256	sha;
 
-	return(NULL);
+	return (NULL);
 }
