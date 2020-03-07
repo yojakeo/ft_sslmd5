@@ -16,14 +16,17 @@
 **	The launching point of SSL.
 */
 
-char	*ft_ssl_launcher(int ac, char **av)
+int		ft_ssl_launcher(int ac, char **av)
 {
 	t_ftssl	ftssl;
+	int	retval;
 
 	ft_ssl_init(&ftssl);
-	parsing_hub(&ftssl, ac, av);
+	if ((retval = parsing_hub(&ftssl, ac, av)) <= 0)
+		return (retval);
 	ftssl.res = hash_table(&ftssl);
-	return (ftssl.res);
+	output_result(&ftssl);
+	return (0);
 }
 
 void	ft_ssl_init(t_ftssl *ftssl)

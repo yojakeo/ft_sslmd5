@@ -6,7 +6,7 @@
 /*   By: japarbs <japarbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 20:42:32 by japarbs           #+#    #+#             */
-/*   Updated: 2020/03/02 19:28:32 by japarbs          ###   ########.fr       */
+/*   Updated: 2020/03/06 18:36:06 by japarbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,13 @@ typedef	struct			s_ftssl
 }						t_ftssl;
 
 /*
+**	Output
+*/
+void					output_result(t_ftssl *ftssl);
+/*
 **	Launcher
 */
-char					*ft_ssl_launcher(int ac, char **av);
+int						ft_ssl_launcher(int ac, char **av);
 void					ft_ssl_init(t_ftssl *ftssl);
 /*
 **	Parsing
@@ -59,8 +63,6 @@ char					*hash_table(t_ftssl *ftssl);
 **	Error Handling
 */
 int						handle_error(int error, t_ftssl *ftssl);
-/*
-**	Hashing Algorithms
-*/
+
 
 #endif
